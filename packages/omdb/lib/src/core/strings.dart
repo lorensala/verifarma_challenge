@@ -1,5 +1,6 @@
-/// Contains all the strings used in the package.
+// ignore_for_file: public_member_api_docs
+
 class Strings {
-  /// The base url for the OMDB API.
   static const baseUrl = 'https://www.omdbapi.com/';
+  static const apiKey = '28640f74';
 }
