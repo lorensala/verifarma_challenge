@@ -1,7 +1,4 @@
-/// {@template omdb}
-/// A Very Good Project created by Very Good CLI.
-/// {@endtemplate}
-class Omdb {
-  /// {@macro omdb}
-  const Omdb();
-}
+export 'api/api.dart';
+export 'core/core.dart';
+export 'dto/dto.dart';
+export 'omdb.dart';
