@@ -16,12 +16,18 @@ class OmdbApi {
 
   /// Fetches a list of movies.
   /// Uses [query] to filter the results.
-  Future<List<MovieDto>> fetchMovies([String query = 'argentina']) async {
+  Future<List<MovieDto>> fetchMovies({
+    String query = 'argentina',
+    int page = 1,
+    String type = 'movie',
+  }) async {
     try {
       final res = await _dio.get<dynamic>(
-        Strings.baseUrl,
+        Constants.baseUrl,
         queryParameters: {
           's': query,
+          'page': page,
+          'r': type,
         },
       );
 
@@ -52,7 +58,7 @@ class OmdbApi {
   Future<MovieDto> fetchMovie(String id) async {
     try {
       final res = await _dio.get<dynamic>(
-        Strings.baseUrl,
+        Constants.baseUrl,
         queryParameters: {
           'i': id,
         },

@@ -11,7 +11,7 @@ class OmdbInterceptor extends Interceptor {
     RequestInterceptorHandler handler,
   ) async {
     options.queryParameters.addAll({
-      'apikey': Strings.apiKey,
+      'apikey': Constants.apiKey,
     });
     return super.onRequest(options, handler);
   }

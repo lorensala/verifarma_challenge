@@ -1,7 +1,4 @@
-/// {@template authentication}
-/// A Very Good Project created by Very Good CLI.
-/// {@endtemplate}
-class Authentication {
-  /// {@macro authentication}
-  const Authentication();
-}
+export 'authentication.dart';
+export 'core/core.dart';
+export 'models/models.dart';
+export 'repository/repository.dart';

@@ -1,18 +1,19 @@
 // ignore_for_file: public_member_api_docs
 
-import 'package:authentication/src/core/failures.dart';
+import 'package:authentication/authentication.dart';
 import 'package:dartz/dartz.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
 
 class AuthenticationRepository {
-  AuthenticationRepository({FirebaseAuth? firebaseAuth})
-      : _firebaseAuth = firebaseAuth ?? FirebaseAuth.instance;
+  AuthenticationRepository({firebase_auth.FirebaseAuth? firebaseAuth})
+      : _firebaseAuth = firebaseAuth ?? firebase_auth.FirebaseAuth.instance;
 
-  final FirebaseAuth _firebaseAuth;
+  final firebase_auth.FirebaseAuth _firebaseAuth;
 
-  Option<User> get user => optionOf(_firebaseAuth.currentUser);
+  Option<User> get user => optionOf(_firebaseAuth.currentUser?.toModel());
 
-  Stream<User?> get userStream => _firebaseAuth.authStateChanges();
+  Stream<User?> get userStream =>
+      _firebaseAuth.authStateChanges().map((user) => user?.toModel());
 
   Future<Either<AuthFailure, Unit>> loginWithEmailAndPassword({
     required String email,
@@ -24,7 +25,7 @@ class AuthenticationRepository {
         password: password,
       );
       return right(unit);
-    } on FirebaseAuthException catch (e) {
+    } on firebase_auth.FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found' || e.code == 'wrong-password') {
         return left(const AuthFailure.invalidEmailAndPasswordCombination());
       } else {
@@ -45,7 +46,7 @@ class AuthenticationRepository {
         password: password,
       );
       return right(unit);
-    } on FirebaseAuthException catch (e) {
+    } on firebase_auth.FirebaseAuthException catch (e) {
       if (e.code == 'email-already-in-use') {
         return left(const AuthFailure.emailAlreadyInUse());
       } else if (e.code == 'invalid-email') {
@@ -58,5 +59,9 @@ class AuthenticationRepository {
     } catch (e) {
       return left(const AuthFailure.unknown());
     }
+  }
+
+  Future<void> logout() async {
+    await _firebaseAuth.signOut();
   }
 }

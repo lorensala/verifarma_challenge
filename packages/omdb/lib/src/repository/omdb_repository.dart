@@ -13,11 +13,14 @@ class OmdbRepository {
   final OmdbApi _api;
 
   /// Fetches a list of movies.
-  Future<Either<MovieFailure, List<Movie>>> fetchMovies([
+  Future<Either<MovieFailure, List<Movie>>> fetchMovies({
     String query = 'argentina',
-  ]) async {
+    int page = 1,
+    String type = 'movie',
+  }) async {
     try {
-      final movies = await _api.fetchMovies(query);
+      final movies =
+          await _api.fetchMovies(query: query, page: page, type: type);
 
       return Right(movies.map((e) => e.toModel()).toList());
     } on MovieNoConnectionException {
