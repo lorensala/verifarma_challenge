@@ -15,6 +15,8 @@ class MovieDetailBloc extends Bloc<MovieDetailEvent, MovieDetailState> {
     on<_FetchMovieDetails>(_onFetchMovieDetail);
   }
 
+  final OmdbRepository _repository;
+
   FutureOr<void> _onFetchMovieDetail(
     _FetchMovieDetails event,
     Emitter<MovieDetailState> emit,
@@ -28,6 +30,4 @@ class MovieDetailBloc extends Bloc<MovieDetailEvent, MovieDetailState> {
       (movie) => emit(MovieDetailState.loaded(movie)),
     );
   }
-
-  final OmdbRepository _repository;
 }

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
+import 'package:movie_app/l10n/l10n.dart';
 import 'package:movie_app/movie/bloc/bloc.dart';
 import 'package:movie_app/movie/widgets/movie_body.dart';
+import 'package:movie_app/theme/widgets/theme_toggle.dart';
 import 'package:omdb/omdb.dart';
 
 /// {@template movie_page}
@@ -23,7 +25,12 @@ class MoviePage extends StatelessWidget {
         omdbRepository: GetIt.I.get<OmdbRepository>(),
       )..add(const MovieEvent.fetchMovies()),
       child: Scaffold(
-        appBar: AppBar(),
+        appBar: AppBar(
+          title: Text(context.l10n.counterAppBarTitle),
+          actions: const [
+            ThemeToggle(),
+          ],
+        ),
         body: const MovieView(),
       ),
     );

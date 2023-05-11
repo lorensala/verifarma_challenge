@@ -19,12 +19,17 @@ dependencies:
   flutter_bloc: ^8.1.2
   flutter_localizations:
     sdk: flutter
+  flutter_svg: ^2.0.5
   formz: ^0.6.0
   freezed_annotation: ^2.2.0
   get_it: ^7.6.0
+  google_fonts: ^4.0.4
+  hydrated_bloc: ^9.1.0
   intl: ^0.17.0
   omdb:
     path: packages/omdb
+  path: ^1.8.2
+  path_provider: ^2.0.15
 
 dev_dependencies:
   bloc_test: ^9.1.1
@@ -38,3 +43,6 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   generate: true
+  assets:
+    - assets/google_fonts/
+    - assets/svg/

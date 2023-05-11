@@ -11,8 +11,12 @@ part 'movie_bloc.freezed.dart';
 part 'movie_event.dart';
 part 'movie_state.dart';
 
+// duración del throttle
 const throttleDuration = Duration(milliseconds: 100);
 
+// Este tranformador de bloc me permite hacer un drop/debounce de 100ms cuando
+// el usuario llega al final de la lista, para evitar que se llame muchas veces
+// al mismo endpoint.
 EventTransformer<E> throttleDroppable<E>(Duration duration) {
   return (events, mapper) {
     return droppable<E>().call(events.throttle(duration), mapper);
@@ -26,6 +30,7 @@ class MovieBloc extends Bloc<MovieEvent, MovieState> {
     on<_FetchMovies>(_onFetchMovies);
     on<_FetchMoreMovies>(_onFetchMoreMovies);
   }
+  final OmdbRepository _repository;
 
   List<Movie> _movies = [];
   int _page = 1;
@@ -34,8 +39,6 @@ class MovieBloc extends Bloc<MovieEvent, MovieState> {
     _FetchMoreMovies event,
     Emitter<MovieState> emit,
   ) async {
-    // emit(const MovieState.loading());
-
     final either = await _repository.fetchMovies(page: _page + 1);
 
     return either.fold(
@@ -64,6 +67,4 @@ class MovieBloc extends Bloc<MovieEvent, MovieState> {
       },
     );
   }
-
-  final OmdbRepository _repository;
 }

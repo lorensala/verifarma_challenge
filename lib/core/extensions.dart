@@ -1,5 +1,5 @@
 import 'package:dartz/dartz.dart';
-import 'package:flutter/material.dart' show ScrollController;
+import 'package:flutter/material.dart';
 
 extension EitherX<L, R> on Either<L, R> {
   R get rightValue => fold((_) => throw Exception('No right value'), (r) => r);
@@ -8,4 +8,9 @@ extension EitherX<L, R> on Either<L, R> {
 
 extension ScrollControllerX on ScrollController {
   bool get isAtBottom => position.pixels == position.maxScrollExtent;
+}
+
+extension BuildContextX on BuildContext {
+  TextTheme get textTheme => Theme.of(this).textTheme;
+  ColorScheme get colorScheme => Theme.of(this).colorScheme;
 }
