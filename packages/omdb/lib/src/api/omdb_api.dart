@@ -64,6 +64,10 @@ class OmdbApi {
         },
       );
 
+      if (res.data['Response'] == 'False') {
+        throw const MovieNotFoundException();
+      }
+
       return MovieDto.fromJson(res.data as Map<String, dynamic>);
     } on DioError catch (e) {
       switch (e.type) {

@@ -24,7 +24,7 @@ mixin _$Movie {
   String get genre => throw _privateConstructorUsedError;
   String get director => throw _privateConstructorUsedError;
   String get writer => throw _privateConstructorUsedError;
-  String get actors => throw _privateConstructorUsedError;
+  List<String> get actors => throw _privateConstructorUsedError;
   String get plot => throw _privateConstructorUsedError;
   String get language => throw _privateConstructorUsedError;
   String get country => throw _privateConstructorUsedError;
@@ -60,7 +60,7 @@ abstract class $MovieCopyWith<$Res> {
       String genre,
       String director,
       String writer,
-      String actors,
+      List<String> actors,
       String plot,
       String language,
       String country,
@@ -154,7 +154,7 @@ class _$MovieCopyWithImpl<$Res, $Val extends Movie>
       actors: null == actors
           ? _value.actors
           : actors // ignore: cast_nullable_to_non_nullable
-              as String,
+              as List<String>,
       plot: null == plot
           ? _value.plot
           : plot // ignore: cast_nullable_to_non_nullable
@@ -238,7 +238,7 @@ abstract class _$$_MovieCopyWith<$Res> implements $MovieCopyWith<$Res> {
       String genre,
       String director,
       String writer,
-      String actors,
+      List<String> actors,
       String plot,
       String language,
       String country,
@@ -326,9 +326,9 @@ class __$$_MovieCopyWithImpl<$Res> extends _$MovieCopyWithImpl<$Res, _$_Movie>
           : writer // ignore: cast_nullable_to_non_nullable
               as String,
       actors: null == actors
-          ? _value.actors
+          ? _value._actors
           : actors // ignore: cast_nullable_to_non_nullable
-              as String,
+              as List<String>,
       plot: null == plot
           ? _value.plot
           : plot // ignore: cast_nullable_to_non_nullable
@@ -409,7 +409,7 @@ class _$_Movie implements _Movie {
       required this.genre,
       required this.director,
       required this.writer,
-      required this.actors,
+      required final List<String> actors,
       required this.plot,
       required this.language,
       required this.country,
@@ -426,7 +426,8 @@ class _$_Movie implements _Movie {
       required this.production,
       required this.website,
       required this.response})
-      : _ratings = ratings;
+      : _actors = actors,
+        _ratings = ratings;
 
   @override
   final String title;
@@ -444,8 +445,14 @@ class _$_Movie implements _Movie {
   final String director;
   @override
   final String writer;
+  final List<String> _actors;
   @override
-  final String actors;
+  List<String> get actors {
+    if (_actors is EqualUnmodifiableListView) return _actors;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_actors);
+  }
+
   @override
   final String plot;
   @override
@@ -505,7 +512,7 @@ class _$_Movie implements _Movie {
             (identical(other.director, director) ||
                 other.director == director) &&
             (identical(other.writer, writer) || other.writer == writer) &&
-            (identical(other.actors, actors) || other.actors == actors) &&
+            const DeepCollectionEquality().equals(other._actors, _actors) &&
             (identical(other.plot, plot) || other.plot == plot) &&
             (identical(other.language, language) ||
                 other.language == language) &&
@@ -542,7 +549,7 @@ class _$_Movie implements _Movie {
         genre,
         director,
         writer,
-        actors,
+        const DeepCollectionEquality().hash(_actors),
         plot,
         language,
         country,
@@ -578,7 +585,7 @@ abstract class _Movie implements Movie {
       required final String genre,
       required final String director,
       required final String writer,
-      required final String actors,
+      required final List<String> actors,
       required final String plot,
       required final String language,
       required final String country,
@@ -613,7 +620,7 @@ abstract class _Movie implements Movie {
   @override
   String get writer;
   @override
-  String get actors;
+  List<String> get actors;
   @override
   String get plot;
   @override

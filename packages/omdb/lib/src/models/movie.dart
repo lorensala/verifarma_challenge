@@ -18,7 +18,7 @@ class Movie with _$Movie {
     required String genre,
     required String director,
     required String writer,
-    required String actors,
+    required List<String> actors,
     required String plot,
     required String language,
     required String country,

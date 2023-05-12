@@ -13,4 +13,10 @@ extension ScrollControllerX on ScrollController {
 extension BuildContextX on BuildContext {
   TextTheme get textTheme => Theme.of(this).textTheme;
   ColorScheme get colorScheme => Theme.of(this).colorScheme;
+  double get width => MediaQuery.of(this).size.width;
+  double get height => MediaQuery.of(this).size.height;
+}
+
+extension StringX on String {
+  String get capizalize => '${this[0].toUpperCase()}${substring(1)}';
 }

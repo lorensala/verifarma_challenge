@@ -12,4 +12,9 @@ class Rating with _$Rating {
     required String source,
     required String value,
   }) = _Rating;
+
+  const Rating._();
+
+  @override
+  String toString() => '$source: $value';
 }

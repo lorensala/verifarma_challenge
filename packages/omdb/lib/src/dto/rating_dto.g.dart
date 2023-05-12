@@ -7,12 +7,12 @@ part of 'rating_dto.dart';
 // **************************************************************************
 
 _$_RatingDto _$$_RatingDtoFromJson(Map<String, dynamic> json) => _$_RatingDto(
-      source: json['source'] as String,
-      value: json['value'] as String,
+      source: json['Source'] as String? ?? 'N/A',
+      value: json['Value'] as String? ?? '0',
     );
 
 Map<String, dynamic> _$$_RatingDtoToJson(_$_RatingDto instance) =>
     <String, dynamic>{
-      'source': instance.source,
-      'value': instance.value,
+      'Source': instance.source,
+      'Value': instance.value,
     };

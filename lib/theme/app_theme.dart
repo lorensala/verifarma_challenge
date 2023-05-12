@@ -33,17 +33,6 @@ class AppTheme {
         elevation: 0,
       ),
       textTheme: _textTheme(onBackgroundLight),
-      bottomNavigationBarTheme: BottomNavigationBarThemeData(
-        selectedItemColor: primaryLight,
-        backgroundColor: backgroundLight,
-        unselectedItemColor: onSecondaryLight,
-        selectedLabelStyle: TextStyle(
-          fontFamily: fontFamily,
-          fontSize: 14,
-          fontWeight: FontWeight.w600,
-        ),
-        unselectedLabelStyle: TextStyle(fontFamily: fontFamily, fontSize: 12),
-      ),
       colorScheme: const ColorScheme.light().copyWith(
         primary: primaryLight,
         secondary: secondaryLight,
@@ -51,6 +40,22 @@ class AppTheme {
         onBackground: onBackgroundLight,
         onSecondary: onSecondaryLight,
         error: errorLight,
+      ),
+      inputDecorationTheme: const InputDecorationTheme(
+        fillColor: secondaryLight,
+        filled: true,
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.all(Radius.circular(5)),
+          borderSide: BorderSide.none,
+        ),
+        focusedErrorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.all(Radius.circular(5)),
+          borderSide: BorderSide(color: errorLight),
+        ),
+        errorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.all(Radius.circular(5)),
+          borderSide: BorderSide(color: errorLight),
+        ),
       ),
     );
   }
@@ -70,17 +75,6 @@ class AppTheme {
         ),
       ),
       textTheme: _textTheme(onBackgroundDark),
-      bottomNavigationBarTheme: BottomNavigationBarThemeData(
-        selectedItemColor: primaryDark,
-        backgroundColor: backgroundDark,
-        unselectedItemColor: onSecondaryDark,
-        selectedLabelStyle: TextStyle(
-          fontFamily: fontFamily,
-          fontSize: 14,
-          fontWeight: FontWeight.w600,
-        ),
-        unselectedLabelStyle: TextStyle(fontFamily: fontFamily, fontSize: 12),
-      ),
       colorScheme: const ColorScheme.dark().copyWith(
         primary: primaryDark,
         secondary: secondaryDark,
@@ -88,6 +82,22 @@ class AppTheme {
         onBackground: onBackgroundDark,
         onSecondary: onSecondaryDark,
         error: errorDark,
+      ),
+      inputDecorationTheme: const InputDecorationTheme(
+        fillColor: secondaryDark,
+        filled: true,
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.all(Radius.circular(5)),
+          borderSide: BorderSide.none,
+        ),
+        focusedErrorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.all(Radius.circular(5)),
+          borderSide: BorderSide(color: errorDark),
+        ),
+        errorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.all(Radius.circular(5)),
+          borderSide: BorderSide(color: errorDark),
+        ),
       ),
     );
   }

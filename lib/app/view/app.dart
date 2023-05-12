@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:movie_app/auth/auth.dart';
 import 'package:movie_app/l10n/l10n.dart';
+import 'package:movie_app/login/view/login_page.dart';
 import 'package:movie_app/movie/view/movie_page.dart';
 import 'package:movie_app/theme/theme.dart';
 
@@ -32,8 +33,8 @@ class App extends StatelessWidget {
             localizationsDelegates: AppLocalizations.localizationsDelegates,
             supportedLocales: AppLocalizations.supportedLocales,
             home: user.when(
-              authenticated: (_) => Container(),
-              unauthenticated: MoviePage.new,
+              authenticated: (_) => const MoviePage(),
+              unauthenticated: () => const LoginPage(),
             ),
           );
         },

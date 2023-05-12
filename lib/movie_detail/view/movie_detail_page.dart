@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
+import 'package:movie_app/core/core.dart';
 import 'package:movie_app/movie_detail/bloc/bloc.dart';
 import 'package:movie_app/movie_detail/widgets/movie_detail_body.dart';
 import 'package:omdb/omdb.dart';
@@ -26,8 +27,14 @@ class MovieDetailPage extends StatelessWidget {
       create: (context) => MovieDetailBloc(
         omdbRepository: GetIt.I.get<OmdbRepository>(),
       )..add(MovieDetailEvent.fetchMovieDetails(movieId)),
-      child: const Scaffold(
-        body: MovieDetailView(),
+      child: Scaffold(
+        appBar: AppBar(
+          leading: BackButton(
+            color: context.colorScheme.onBackground,
+          ),
+          title: const Text('Movie Details'),
+        ),
+        body: const MovieDetailView(),
       ),
     );
   }

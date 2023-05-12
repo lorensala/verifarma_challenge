@@ -20,7 +20,9 @@ RatingDto _$RatingDtoFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$RatingDto {
+  @JsonKey(name: 'Source')
   String get source => throw _privateConstructorUsedError;
+  @JsonKey(name: 'Value')
   String get value => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -34,7 +36,9 @@ abstract class $RatingDtoCopyWith<$Res> {
   factory $RatingDtoCopyWith(RatingDto value, $Res Function(RatingDto) then) =
       _$RatingDtoCopyWithImpl<$Res, RatingDto>;
   @useResult
-  $Res call({String source, String value});
+  $Res call(
+      {@JsonKey(name: 'Source') String source,
+      @JsonKey(name: 'Value') String value});
 }
 
 /// @nodoc
@@ -73,7 +77,9 @@ abstract class _$$_RatingDtoCopyWith<$Res> implements $RatingDtoCopyWith<$Res> {
       __$$_RatingDtoCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String source, String value});
+  $Res call(
+      {@JsonKey(name: 'Source') String source,
+      @JsonKey(name: 'Value') String value});
 }
 
 /// @nodoc
@@ -106,14 +112,19 @@ class __$$_RatingDtoCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_RatingDto extends _RatingDto {
-  const _$_RatingDto({required this.source, required this.value}) : super._();
+  const _$_RatingDto(
+      {@JsonKey(name: 'Source') this.source = 'N/A',
+      @JsonKey(name: 'Value') this.value = '0'})
+      : super._();
 
   factory _$_RatingDto.fromJson(Map<String, dynamic> json) =>
       _$$_RatingDtoFromJson(json);
 
   @override
+  @JsonKey(name: 'Source')
   final String source;
   @override
+  @JsonKey(name: 'Value')
   final String value;
 
   @override
@@ -150,16 +161,18 @@ class _$_RatingDto extends _RatingDto {
 
 abstract class _RatingDto extends RatingDto {
   const factory _RatingDto(
-      {required final String source,
-      required final String value}) = _$_RatingDto;
+      {@JsonKey(name: 'Source') final String source,
+      @JsonKey(name: 'Value') final String value}) = _$_RatingDto;
   const _RatingDto._() : super._();
 
   factory _RatingDto.fromJson(Map<String, dynamic> json) =
       _$_RatingDto.fromJson;
 
   @override
+  @JsonKey(name: 'Source')
   String get source;
   @override
+  @JsonKey(name: 'Value')
   String get value;
   @override
   @JsonKey(ignore: true)

@@ -21,35 +21,52 @@ MovieDto _$MovieDtoFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$MovieDto {
   @JsonKey(name: 'Title')
-  String? get title => throw _privateConstructorUsedError;
+  String get title => throw _privateConstructorUsedError;
   @JsonKey(name: 'Year')
-  String? get year => throw _privateConstructorUsedError;
-  String? get rated => throw _privateConstructorUsedError;
-  String? get released => throw _privateConstructorUsedError;
-  String? get runtime => throw _privateConstructorUsedError;
-  String? get genre => throw _privateConstructorUsedError;
-  String? get director => throw _privateConstructorUsedError;
-  String? get writer => throw _privateConstructorUsedError;
-  String? get actors => throw _privateConstructorUsedError;
-  String? get plot => throw _privateConstructorUsedError;
-  String? get language => throw _privateConstructorUsedError;
-  String? get country => throw _privateConstructorUsedError;
-  String? get awards => throw _privateConstructorUsedError;
+  String get year => throw _privateConstructorUsedError;
+  @JsonKey(name: 'Rated')
+  String get rated => throw _privateConstructorUsedError;
+  @JsonKey(name: 'Released')
+  String get released => throw _privateConstructorUsedError;
+  @JsonKey(name: 'Runtime')
+  String get runtime => throw _privateConstructorUsedError;
+  @JsonKey(name: 'Genre')
+  String get genre => throw _privateConstructorUsedError;
+  @JsonKey(name: 'Director')
+  String get director => throw _privateConstructorUsedError;
+  @JsonKey(name: 'Writer')
+  String get writer => throw _privateConstructorUsedError;
+  @JsonKey(name: 'Actors')
+  String get actors => throw _privateConstructorUsedError;
+  @JsonKey(name: 'Plot')
+  String get plot => throw _privateConstructorUsedError;
+  @JsonKey(name: 'Language')
+  String get language => throw _privateConstructorUsedError;
+  @JsonKey(name: 'Country')
+  String get country => throw _privateConstructorUsedError;
+  @JsonKey(name: 'Awards')
+  String get awards => throw _privateConstructorUsedError;
   @JsonKey(name: 'Poster')
-  String? get poster => throw _privateConstructorUsedError;
-  List<RatingDto>? get ratings => throw _privateConstructorUsedError;
-  String? get metascore => throw _privateConstructorUsedError;
-  String? get imdbRating => throw _privateConstructorUsedError;
-  String? get imdbVotes => throw _privateConstructorUsedError;
-  @JsonKey(name: 'imdbID')
-  String? get imdbId => throw _privateConstructorUsedError;
+  String get poster => throw _privateConstructorUsedError;
+  @JsonKey(name: 'Ratings')
+  List<RatingDto> get ratings => throw _privateConstructorUsedError;
+  @JsonKey(name: 'Metascore')
+  String get metascore => throw _privateConstructorUsedError;
+  String get imdbRating => throw _privateConstructorUsedError;
+  String get imdbVotes => throw _privateConstructorUsedError;
+  String get imdbID => throw _privateConstructorUsedError;
   @JsonKey(name: 'Type')
-  String? get type => throw _privateConstructorUsedError;
-  String? get dvd => throw _privateConstructorUsedError;
-  String? get boxOffice => throw _privateConstructorUsedError;
-  String? get production => throw _privateConstructorUsedError;
-  String? get website => throw _privateConstructorUsedError;
-  String? get response => throw _privateConstructorUsedError;
+  String get type => throw _privateConstructorUsedError;
+  @JsonKey(name: 'Dvd')
+  String get dvd => throw _privateConstructorUsedError;
+  @JsonKey(name: 'BoxOffice')
+  String get boxOffice => throw _privateConstructorUsedError;
+  @JsonKey(name: 'Production')
+  String get production => throw _privateConstructorUsedError;
+  @JsonKey(name: 'Webstire')
+  String get website => throw _privateConstructorUsedError;
+  @JsonKey(name: 'Response')
+  String get response => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -63,31 +80,31 @@ abstract class $MovieDtoCopyWith<$Res> {
       _$MovieDtoCopyWithImpl<$Res, MovieDto>;
   @useResult
   $Res call(
-      {@JsonKey(name: 'Title') String? title,
-      @JsonKey(name: 'Year') String? year,
-      String? rated,
-      String? released,
-      String? runtime,
-      String? genre,
-      String? director,
-      String? writer,
-      String? actors,
-      String? plot,
-      String? language,
-      String? country,
-      String? awards,
-      @JsonKey(name: 'Poster') String? poster,
-      List<RatingDto>? ratings,
-      String? metascore,
-      String? imdbRating,
-      String? imdbVotes,
-      @JsonKey(name: 'imdbID') String? imdbId,
-      @JsonKey(name: 'Type') String? type,
-      String? dvd,
-      String? boxOffice,
-      String? production,
-      String? website,
-      String? response});
+      {@JsonKey(name: 'Title') String title,
+      @JsonKey(name: 'Year') String year,
+      @JsonKey(name: 'Rated') String rated,
+      @JsonKey(name: 'Released') String released,
+      @JsonKey(name: 'Runtime') String runtime,
+      @JsonKey(name: 'Genre') String genre,
+      @JsonKey(name: 'Director') String director,
+      @JsonKey(name: 'Writer') String writer,
+      @JsonKey(name: 'Actors') String actors,
+      @JsonKey(name: 'Plot') String plot,
+      @JsonKey(name: 'Language') String language,
+      @JsonKey(name: 'Country') String country,
+      @JsonKey(name: 'Awards') String awards,
+      @JsonKey(name: 'Poster') String poster,
+      @JsonKey(name: 'Ratings') List<RatingDto> ratings,
+      @JsonKey(name: 'Metascore') String metascore,
+      String imdbRating,
+      String imdbVotes,
+      String imdbID,
+      @JsonKey(name: 'Type') String type,
+      @JsonKey(name: 'Dvd') String dvd,
+      @JsonKey(name: 'BoxOffice') String boxOffice,
+      @JsonKey(name: 'Production') String production,
+      @JsonKey(name: 'Webstire') String website,
+      @JsonKey(name: 'Response') String response});
 }
 
 /// @nodoc
@@ -103,133 +120,133 @@ class _$MovieDtoCopyWithImpl<$Res, $Val extends MovieDto>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? title = freezed,
-    Object? year = freezed,
-    Object? rated = freezed,
-    Object? released = freezed,
-    Object? runtime = freezed,
-    Object? genre = freezed,
-    Object? director = freezed,
-    Object? writer = freezed,
-    Object? actors = freezed,
-    Object? plot = freezed,
-    Object? language = freezed,
-    Object? country = freezed,
-    Object? awards = freezed,
-    Object? poster = freezed,
-    Object? ratings = freezed,
-    Object? metascore = freezed,
-    Object? imdbRating = freezed,
-    Object? imdbVotes = freezed,
-    Object? imdbId = freezed,
-    Object? type = freezed,
-    Object? dvd = freezed,
-    Object? boxOffice = freezed,
-    Object? production = freezed,
-    Object? website = freezed,
-    Object? response = freezed,
+    Object? title = null,
+    Object? year = null,
+    Object? rated = null,
+    Object? released = null,
+    Object? runtime = null,
+    Object? genre = null,
+    Object? director = null,
+    Object? writer = null,
+    Object? actors = null,
+    Object? plot = null,
+    Object? language = null,
+    Object? country = null,
+    Object? awards = null,
+    Object? poster = null,
+    Object? ratings = null,
+    Object? metascore = null,
+    Object? imdbRating = null,
+    Object? imdbVotes = null,
+    Object? imdbID = null,
+    Object? type = null,
+    Object? dvd = null,
+    Object? boxOffice = null,
+    Object? production = null,
+    Object? website = null,
+    Object? response = null,
   }) {
     return _then(_value.copyWith(
-      title: freezed == title
+      title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
-              as String?,
-      year: freezed == year
+              as String,
+      year: null == year
           ? _value.year
           : year // ignore: cast_nullable_to_non_nullable
-              as String?,
-      rated: freezed == rated
+              as String,
+      rated: null == rated
           ? _value.rated
           : rated // ignore: cast_nullable_to_non_nullable
-              as String?,
-      released: freezed == released
+              as String,
+      released: null == released
           ? _value.released
           : released // ignore: cast_nullable_to_non_nullable
-              as String?,
-      runtime: freezed == runtime
+              as String,
+      runtime: null == runtime
           ? _value.runtime
           : runtime // ignore: cast_nullable_to_non_nullable
-              as String?,
-      genre: freezed == genre
+              as String,
+      genre: null == genre
           ? _value.genre
           : genre // ignore: cast_nullable_to_non_nullable
-              as String?,
-      director: freezed == director
+              as String,
+      director: null == director
           ? _value.director
           : director // ignore: cast_nullable_to_non_nullable
-              as String?,
-      writer: freezed == writer
+              as String,
+      writer: null == writer
           ? _value.writer
           : writer // ignore: cast_nullable_to_non_nullable
-              as String?,
-      actors: freezed == actors
+              as String,
+      actors: null == actors
           ? _value.actors
           : actors // ignore: cast_nullable_to_non_nullable
-              as String?,
-      plot: freezed == plot
+              as String,
+      plot: null == plot
           ? _value.plot
           : plot // ignore: cast_nullable_to_non_nullable
-              as String?,
-      language: freezed == language
+              as String,
+      language: null == language
           ? _value.language
           : language // ignore: cast_nullable_to_non_nullable
-              as String?,
-      country: freezed == country
+              as String,
+      country: null == country
           ? _value.country
           : country // ignore: cast_nullable_to_non_nullable
-              as String?,
-      awards: freezed == awards
+              as String,
+      awards: null == awards
           ? _value.awards
           : awards // ignore: cast_nullable_to_non_nullable
-              as String?,
-      poster: freezed == poster
+              as String,
+      poster: null == poster
           ? _value.poster
           : poster // ignore: cast_nullable_to_non_nullable
-              as String?,
-      ratings: freezed == ratings
+              as String,
+      ratings: null == ratings
           ? _value.ratings
           : ratings // ignore: cast_nullable_to_non_nullable
-              as List<RatingDto>?,
-      metascore: freezed == metascore
+              as List<RatingDto>,
+      metascore: null == metascore
           ? _value.metascore
           : metascore // ignore: cast_nullable_to_non_nullable
-              as String?,
-      imdbRating: freezed == imdbRating
+              as String,
+      imdbRating: null == imdbRating
           ? _value.imdbRating
           : imdbRating // ignore: cast_nullable_to_non_nullable
-              as String?,
-      imdbVotes: freezed == imdbVotes
+              as String,
+      imdbVotes: null == imdbVotes
           ? _value.imdbVotes
           : imdbVotes // ignore: cast_nullable_to_non_nullable
-              as String?,
-      imdbId: freezed == imdbId
-          ? _value.imdbId
-          : imdbId // ignore: cast_nullable_to_non_nullable
-              as String?,
-      type: freezed == type
+              as String,
+      imdbID: null == imdbID
+          ? _value.imdbID
+          : imdbID // ignore: cast_nullable_to_non_nullable
+              as String,
+      type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as String?,
-      dvd: freezed == dvd
+              as String,
+      dvd: null == dvd
           ? _value.dvd
           : dvd // ignore: cast_nullable_to_non_nullable
-              as String?,
-      boxOffice: freezed == boxOffice
+              as String,
+      boxOffice: null == boxOffice
           ? _value.boxOffice
           : boxOffice // ignore: cast_nullable_to_non_nullable
-              as String?,
-      production: freezed == production
+              as String,
+      production: null == production
           ? _value.production
           : production // ignore: cast_nullable_to_non_nullable
-              as String?,
-      website: freezed == website
+              as String,
+      website: null == website
           ? _value.website
           : website // ignore: cast_nullable_to_non_nullable
-              as String?,
-      response: freezed == response
+              as String,
+      response: null == response
           ? _value.response
           : response // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
     ) as $Val);
   }
 }
@@ -242,31 +259,31 @@ abstract class _$$_MovieDtoCopyWith<$Res> implements $MovieDtoCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: 'Title') String? title,
-      @JsonKey(name: 'Year') String? year,
-      String? rated,
-      String? released,
-      String? runtime,
-      String? genre,
-      String? director,
-      String? writer,
-      String? actors,
-      String? plot,
-      String? language,
-      String? country,
-      String? awards,
-      @JsonKey(name: 'Poster') String? poster,
-      List<RatingDto>? ratings,
-      String? metascore,
-      String? imdbRating,
-      String? imdbVotes,
-      @JsonKey(name: 'imdbID') String? imdbId,
-      @JsonKey(name: 'Type') String? type,
-      String? dvd,
-      String? boxOffice,
-      String? production,
-      String? website,
-      String? response});
+      {@JsonKey(name: 'Title') String title,
+      @JsonKey(name: 'Year') String year,
+      @JsonKey(name: 'Rated') String rated,
+      @JsonKey(name: 'Released') String released,
+      @JsonKey(name: 'Runtime') String runtime,
+      @JsonKey(name: 'Genre') String genre,
+      @JsonKey(name: 'Director') String director,
+      @JsonKey(name: 'Writer') String writer,
+      @JsonKey(name: 'Actors') String actors,
+      @JsonKey(name: 'Plot') String plot,
+      @JsonKey(name: 'Language') String language,
+      @JsonKey(name: 'Country') String country,
+      @JsonKey(name: 'Awards') String awards,
+      @JsonKey(name: 'Poster') String poster,
+      @JsonKey(name: 'Ratings') List<RatingDto> ratings,
+      @JsonKey(name: 'Metascore') String metascore,
+      String imdbRating,
+      String imdbVotes,
+      String imdbID,
+      @JsonKey(name: 'Type') String type,
+      @JsonKey(name: 'Dvd') String dvd,
+      @JsonKey(name: 'BoxOffice') String boxOffice,
+      @JsonKey(name: 'Production') String production,
+      @JsonKey(name: 'Webstire') String website,
+      @JsonKey(name: 'Response') String response});
 }
 
 /// @nodoc
@@ -280,133 +297,133 @@ class __$$_MovieDtoCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? title = freezed,
-    Object? year = freezed,
-    Object? rated = freezed,
-    Object? released = freezed,
-    Object? runtime = freezed,
-    Object? genre = freezed,
-    Object? director = freezed,
-    Object? writer = freezed,
-    Object? actors = freezed,
-    Object? plot = freezed,
-    Object? language = freezed,
-    Object? country = freezed,
-    Object? awards = freezed,
-    Object? poster = freezed,
-    Object? ratings = freezed,
-    Object? metascore = freezed,
-    Object? imdbRating = freezed,
-    Object? imdbVotes = freezed,
-    Object? imdbId = freezed,
-    Object? type = freezed,
-    Object? dvd = freezed,
-    Object? boxOffice = freezed,
-    Object? production = freezed,
-    Object? website = freezed,
-    Object? response = freezed,
+    Object? title = null,
+    Object? year = null,
+    Object? rated = null,
+    Object? released = null,
+    Object? runtime = null,
+    Object? genre = null,
+    Object? director = null,
+    Object? writer = null,
+    Object? actors = null,
+    Object? plot = null,
+    Object? language = null,
+    Object? country = null,
+    Object? awards = null,
+    Object? poster = null,
+    Object? ratings = null,
+    Object? metascore = null,
+    Object? imdbRating = null,
+    Object? imdbVotes = null,
+    Object? imdbID = null,
+    Object? type = null,
+    Object? dvd = null,
+    Object? boxOffice = null,
+    Object? production = null,
+    Object? website = null,
+    Object? response = null,
   }) {
     return _then(_$_MovieDto(
-      title: freezed == title
+      title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
-              as String?,
-      year: freezed == year
+              as String,
+      year: null == year
           ? _value.year
           : year // ignore: cast_nullable_to_non_nullable
-              as String?,
-      rated: freezed == rated
+              as String,
+      rated: null == rated
           ? _value.rated
           : rated // ignore: cast_nullable_to_non_nullable
-              as String?,
-      released: freezed == released
+              as String,
+      released: null == released
           ? _value.released
           : released // ignore: cast_nullable_to_non_nullable
-              as String?,
-      runtime: freezed == runtime
+              as String,
+      runtime: null == runtime
           ? _value.runtime
           : runtime // ignore: cast_nullable_to_non_nullable
-              as String?,
-      genre: freezed == genre
+              as String,
+      genre: null == genre
           ? _value.genre
           : genre // ignore: cast_nullable_to_non_nullable
-              as String?,
-      director: freezed == director
+              as String,
+      director: null == director
           ? _value.director
           : director // ignore: cast_nullable_to_non_nullable
-              as String?,
-      writer: freezed == writer
+              as String,
+      writer: null == writer
           ? _value.writer
           : writer // ignore: cast_nullable_to_non_nullable
-              as String?,
-      actors: freezed == actors
+              as String,
+      actors: null == actors
           ? _value.actors
           : actors // ignore: cast_nullable_to_non_nullable
-              as String?,
-      plot: freezed == plot
+              as String,
+      plot: null == plot
           ? _value.plot
           : plot // ignore: cast_nullable_to_non_nullable
-              as String?,
-      language: freezed == language
+              as String,
+      language: null == language
           ? _value.language
           : language // ignore: cast_nullable_to_non_nullable
-              as String?,
-      country: freezed == country
+              as String,
+      country: null == country
           ? _value.country
           : country // ignore: cast_nullable_to_non_nullable
-              as String?,
-      awards: freezed == awards
+              as String,
+      awards: null == awards
           ? _value.awards
           : awards // ignore: cast_nullable_to_non_nullable
-              as String?,
-      poster: freezed == poster
+              as String,
+      poster: null == poster
           ? _value.poster
           : poster // ignore: cast_nullable_to_non_nullable
-              as String?,
-      ratings: freezed == ratings
+              as String,
+      ratings: null == ratings
           ? _value._ratings
           : ratings // ignore: cast_nullable_to_non_nullable
-              as List<RatingDto>?,
-      metascore: freezed == metascore
+              as List<RatingDto>,
+      metascore: null == metascore
           ? _value.metascore
           : metascore // ignore: cast_nullable_to_non_nullable
-              as String?,
-      imdbRating: freezed == imdbRating
+              as String,
+      imdbRating: null == imdbRating
           ? _value.imdbRating
           : imdbRating // ignore: cast_nullable_to_non_nullable
-              as String?,
-      imdbVotes: freezed == imdbVotes
+              as String,
+      imdbVotes: null == imdbVotes
           ? _value.imdbVotes
           : imdbVotes // ignore: cast_nullable_to_non_nullable
-              as String?,
-      imdbId: freezed == imdbId
-          ? _value.imdbId
-          : imdbId // ignore: cast_nullable_to_non_nullable
-              as String?,
-      type: freezed == type
+              as String,
+      imdbID: null == imdbID
+          ? _value.imdbID
+          : imdbID // ignore: cast_nullable_to_non_nullable
+              as String,
+      type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as String?,
-      dvd: freezed == dvd
+              as String,
+      dvd: null == dvd
           ? _value.dvd
           : dvd // ignore: cast_nullable_to_non_nullable
-              as String?,
-      boxOffice: freezed == boxOffice
+              as String,
+      boxOffice: null == boxOffice
           ? _value.boxOffice
           : boxOffice // ignore: cast_nullable_to_non_nullable
-              as String?,
-      production: freezed == production
+              as String,
+      production: null == production
           ? _value.production
           : production // ignore: cast_nullable_to_non_nullable
-              as String?,
-      website: freezed == website
+              as String,
+      website: null == website
           ? _value.website
           : website // ignore: cast_nullable_to_non_nullable
-              as String?,
-      response: freezed == response
+              as String,
+      response: null == response
           ? _value.response
           : response // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
     ));
   }
 }
@@ -417,29 +434,29 @@ class _$_MovieDto extends _MovieDto {
   const _$_MovieDto(
       {@JsonKey(name: 'Title') this.title = 'N/A',
       @JsonKey(name: 'Year') this.year = 'N/A',
-      this.rated = 'N/A',
-      this.released = 'N/A',
-      this.runtime = 'N/A',
-      this.genre = 'N/A',
-      this.director = 'N/A',
-      this.writer = 'N/A',
-      this.actors = 'N/A',
-      this.plot = 'N/A',
-      this.language = 'N/A',
-      this.country = 'N/A',
-      this.awards = 'N/A',
+      @JsonKey(name: 'Rated') this.rated = 'N/A',
+      @JsonKey(name: 'Released') this.released = 'N/A',
+      @JsonKey(name: 'Runtime') this.runtime = 'N/A',
+      @JsonKey(name: 'Genre') this.genre = 'N/A',
+      @JsonKey(name: 'Director') this.director = 'N/A',
+      @JsonKey(name: 'Writer') this.writer = 'N/A',
+      @JsonKey(name: 'Actors') this.actors = 'N/A',
+      @JsonKey(name: 'Plot') this.plot = 'N/A',
+      @JsonKey(name: 'Language') this.language = 'N/A',
+      @JsonKey(name: 'Country') this.country = 'N/A',
+      @JsonKey(name: 'Awards') this.awards = 'N/A',
       @JsonKey(name: 'Poster') this.poster = 'N/A',
-      final List<RatingDto>? ratings = const [],
-      this.metascore = 'N/A',
-      this.imdbRating = 'N/A',
-      this.imdbVotes = 'N/A',
-      @JsonKey(name: 'imdbID') this.imdbId = 'N/A',
+      @JsonKey(name: 'Ratings') final List<RatingDto> ratings = const [],
+      @JsonKey(name: 'Metascore') this.metascore = 'N/A',
+      this.imdbRating = '0',
+      this.imdbVotes = '0',
+      required this.imdbID,
       @JsonKey(name: 'Type') this.type = 'N/A',
-      this.dvd = 'N/A',
-      this.boxOffice = 'N/A',
-      this.production = 'N/A',
-      this.website = 'N/A',
-      this.response = 'N/A'})
+      @JsonKey(name: 'Dvd') this.dvd = 'N/A',
+      @JsonKey(name: 'BoxOffice') this.boxOffice = 'N/A',
+      @JsonKey(name: 'Production') this.production = 'N/A',
+      @JsonKey(name: 'Webstire') this.website = 'N/A',
+      @JsonKey(name: 'Response') this.response = 'N/A'})
       : _ratings = ratings,
         super._();
 
@@ -448,91 +465,88 @@ class _$_MovieDto extends _MovieDto {
 
   @override
   @JsonKey(name: 'Title')
-  final String? title;
+  final String title;
   @override
   @JsonKey(name: 'Year')
-  final String? year;
+  final String year;
   @override
-  @JsonKey()
-  final String? rated;
+  @JsonKey(name: 'Rated')
+  final String rated;
   @override
-  @JsonKey()
-  final String? released;
+  @JsonKey(name: 'Released')
+  final String released;
   @override
-  @JsonKey()
-  final String? runtime;
+  @JsonKey(name: 'Runtime')
+  final String runtime;
   @override
-  @JsonKey()
-  final String? genre;
+  @JsonKey(name: 'Genre')
+  final String genre;
   @override
-  @JsonKey()
-  final String? director;
+  @JsonKey(name: 'Director')
+  final String director;
   @override
-  @JsonKey()
-  final String? writer;
+  @JsonKey(name: 'Writer')
+  final String writer;
   @override
-  @JsonKey()
-  final String? actors;
+  @JsonKey(name: 'Actors')
+  final String actors;
   @override
-  @JsonKey()
-  final String? plot;
+  @JsonKey(name: 'Plot')
+  final String plot;
   @override
-  @JsonKey()
-  final String? language;
+  @JsonKey(name: 'Language')
+  final String language;
   @override
-  @JsonKey()
-  final String? country;
+  @JsonKey(name: 'Country')
+  final String country;
   @override
-  @JsonKey()
-  final String? awards;
+  @JsonKey(name: 'Awards')
+  final String awards;
   @override
   @JsonKey(name: 'Poster')
-  final String? poster;
-  final List<RatingDto>? _ratings;
+  final String poster;
+  final List<RatingDto> _ratings;
   @override
-  @JsonKey()
-  List<RatingDto>? get ratings {
-    final value = _ratings;
-    if (value == null) return null;
+  @JsonKey(name: 'Ratings')
+  List<RatingDto> get ratings {
     if (_ratings is EqualUnmodifiableListView) return _ratings;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
+    return EqualUnmodifiableListView(_ratings);
   }
 
   @override
-  @JsonKey()
-  final String? metascore;
+  @JsonKey(name: 'Metascore')
+  final String metascore;
   @override
   @JsonKey()
-  final String? imdbRating;
+  final String imdbRating;
   @override
   @JsonKey()
-  final String? imdbVotes;
+  final String imdbVotes;
   @override
-  @JsonKey(name: 'imdbID')
-  final String? imdbId;
+  final String imdbID;
   @override
   @JsonKey(name: 'Type')
-  final String? type;
+  final String type;
   @override
-  @JsonKey()
-  final String? dvd;
+  @JsonKey(name: 'Dvd')
+  final String dvd;
   @override
-  @JsonKey()
-  final String? boxOffice;
+  @JsonKey(name: 'BoxOffice')
+  final String boxOffice;
   @override
-  @JsonKey()
-  final String? production;
+  @JsonKey(name: 'Production')
+  final String production;
   @override
-  @JsonKey()
-  final String? website;
+  @JsonKey(name: 'Webstire')
+  final String website;
   @override
-  @JsonKey()
-  final String? response;
+  @JsonKey(name: 'Response')
+  final String response;
 
   @override
   String toString() {
-    return 'MovieDto(title: $title, year: $year, rated: $rated, released: $released, runtime: $runtime, genre: $genre, director: $director, writer: $writer, actors: $actors, plot: $plot, language: $language, country: $country, awards: $awards, poster: $poster, ratings: $ratings, metascore: $metascore, imdbRating: $imdbRating, imdbVotes: $imdbVotes, imdbId: $imdbId, type: $type, dvd: $dvd, boxOffice: $boxOffice, production: $production, website: $website, response: $response)';
+    return 'MovieDto(title: $title, year: $year, rated: $rated, released: $released, runtime: $runtime, genre: $genre, director: $director, writer: $writer, actors: $actors, plot: $plot, language: $language, country: $country, awards: $awards, poster: $poster, ratings: $ratings, metascore: $metascore, imdbRating: $imdbRating, imdbVotes: $imdbVotes, imdbID: $imdbID, type: $type, dvd: $dvd, boxOffice: $boxOffice, production: $production, website: $website, response: $response)';
   }
 
   @override
@@ -564,7 +578,7 @@ class _$_MovieDto extends _MovieDto {
                 other.imdbRating == imdbRating) &&
             (identical(other.imdbVotes, imdbVotes) ||
                 other.imdbVotes == imdbVotes) &&
-            (identical(other.imdbId, imdbId) || other.imdbId == imdbId) &&
+            (identical(other.imdbID, imdbID) || other.imdbID == imdbID) &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.dvd, dvd) || other.dvd == dvd) &&
             (identical(other.boxOffice, boxOffice) ||
@@ -598,7 +612,7 @@ class _$_MovieDto extends _MovieDto {
         metascore,
         imdbRating,
         imdbVotes,
-        imdbId,
+        imdbID,
         type,
         dvd,
         boxOffice,
@@ -623,90 +637,107 @@ class _$_MovieDto extends _MovieDto {
 
 abstract class _MovieDto extends MovieDto {
   const factory _MovieDto(
-      {@JsonKey(name: 'Title') final String? title,
-      @JsonKey(name: 'Year') final String? year,
-      final String? rated,
-      final String? released,
-      final String? runtime,
-      final String? genre,
-      final String? director,
-      final String? writer,
-      final String? actors,
-      final String? plot,
-      final String? language,
-      final String? country,
-      final String? awards,
-      @JsonKey(name: 'Poster') final String? poster,
-      final List<RatingDto>? ratings,
-      final String? metascore,
-      final String? imdbRating,
-      final String? imdbVotes,
-      @JsonKey(name: 'imdbID') final String? imdbId,
-      @JsonKey(name: 'Type') final String? type,
-      final String? dvd,
-      final String? boxOffice,
-      final String? production,
-      final String? website,
-      final String? response}) = _$_MovieDto;
+      {@JsonKey(name: 'Title') final String title,
+      @JsonKey(name: 'Year') final String year,
+      @JsonKey(name: 'Rated') final String rated,
+      @JsonKey(name: 'Released') final String released,
+      @JsonKey(name: 'Runtime') final String runtime,
+      @JsonKey(name: 'Genre') final String genre,
+      @JsonKey(name: 'Director') final String director,
+      @JsonKey(name: 'Writer') final String writer,
+      @JsonKey(name: 'Actors') final String actors,
+      @JsonKey(name: 'Plot') final String plot,
+      @JsonKey(name: 'Language') final String language,
+      @JsonKey(name: 'Country') final String country,
+      @JsonKey(name: 'Awards') final String awards,
+      @JsonKey(name: 'Poster') final String poster,
+      @JsonKey(name: 'Ratings') final List<RatingDto> ratings,
+      @JsonKey(name: 'Metascore') final String metascore,
+      final String imdbRating,
+      final String imdbVotes,
+      required final String imdbID,
+      @JsonKey(name: 'Type') final String type,
+      @JsonKey(name: 'Dvd') final String dvd,
+      @JsonKey(name: 'BoxOffice') final String boxOffice,
+      @JsonKey(name: 'Production') final String production,
+      @JsonKey(name: 'Webstire') final String website,
+      @JsonKey(name: 'Response') final String response}) = _$_MovieDto;
   const _MovieDto._() : super._();
 
   factory _MovieDto.fromJson(Map<String, dynamic> json) = _$_MovieDto.fromJson;
 
   @override
   @JsonKey(name: 'Title')
-  String? get title;
+  String get title;
   @override
   @JsonKey(name: 'Year')
-  String? get year;
+  String get year;
   @override
-  String? get rated;
+  @JsonKey(name: 'Rated')
+  String get rated;
   @override
-  String? get released;
+  @JsonKey(name: 'Released')
+  String get released;
   @override
-  String? get runtime;
+  @JsonKey(name: 'Runtime')
+  String get runtime;
   @override
-  String? get genre;
+  @JsonKey(name: 'Genre')
+  String get genre;
   @override
-  String? get director;
+  @JsonKey(name: 'Director')
+  String get director;
   @override
-  String? get writer;
+  @JsonKey(name: 'Writer')
+  String get writer;
   @override
-  String? get actors;
+  @JsonKey(name: 'Actors')
+  String get actors;
   @override
-  String? get plot;
+  @JsonKey(name: 'Plot')
+  String get plot;
   @override
-  String? get language;
+  @JsonKey(name: 'Language')
+  String get language;
   @override
-  String? get country;
+  @JsonKey(name: 'Country')
+  String get country;
   @override
-  String? get awards;
+  @JsonKey(name: 'Awards')
+  String get awards;
   @override
   @JsonKey(name: 'Poster')
-  String? get poster;
+  String get poster;
   @override
-  List<RatingDto>? get ratings;
+  @JsonKey(name: 'Ratings')
+  List<RatingDto> get ratings;
   @override
-  String? get metascore;
+  @JsonKey(name: 'Metascore')
+  String get metascore;
   @override
-  String? get imdbRating;
+  String get imdbRating;
   @override
-  String? get imdbVotes;
+  String get imdbVotes;
   @override
-  @JsonKey(name: 'imdbID')
-  String? get imdbId;
+  String get imdbID;
   @override
   @JsonKey(name: 'Type')
-  String? get type;
+  String get type;
   @override
-  String? get dvd;
+  @JsonKey(name: 'Dvd')
+  String get dvd;
   @override
-  String? get boxOffice;
+  @JsonKey(name: 'BoxOffice')
+  String get boxOffice;
   @override
-  String? get production;
+  @JsonKey(name: 'Production')
+  String get production;
   @override
-  String? get website;
+  @JsonKey(name: 'Webstire')
+  String get website;
   @override
-  String? get response;
+  @JsonKey(name: 'Response')
+  String get response;
   @override
   @JsonKey(ignore: true)
   _$$_MovieDtoCopyWith<_$_MovieDto> get copyWith =>

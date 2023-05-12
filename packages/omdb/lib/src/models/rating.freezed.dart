@@ -97,18 +97,13 @@ class __$$_RatingCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Rating implements _Rating {
-  const _$_Rating({required this.source, required this.value});
+class _$_Rating extends _Rating {
+  const _$_Rating({required this.source, required this.value}) : super._();
 
   @override
   final String source;
   @override
   final String value;
-
-  @override
-  String toString() {
-    return 'Rating(source: $source, value: $value)';
-  }
 
   @override
   bool operator ==(dynamic other) {
@@ -129,9 +124,10 @@ class _$_Rating implements _Rating {
       __$$_RatingCopyWithImpl<_$_Rating>(this, _$identity);
 }
 
-abstract class _Rating implements Rating {
+abstract class _Rating extends Rating {
   const factory _Rating(
       {required final String source, required final String value}) = _$_Rating;
+  const _Rating._() : super._();
 
   @override
   String get source;
