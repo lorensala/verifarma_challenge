@@ -19,38 +19,38 @@ mixin _$AuthEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() logoutRequestedEvent,
-    required TResult Function(Option<User> user) userChanged,
+    required TResult Function() listenUser,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? logoutRequestedEvent,
-    TResult? Function(Option<User> user)? userChanged,
+    TResult? Function()? listenUser,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? logoutRequestedEvent,
-    TResult Function(Option<User> user)? userChanged,
+    TResult Function()? listenUser,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(LogoutRequestedEvent value) logoutRequestedEvent,
-    required TResult Function(UserChanged value) userChanged,
+    required TResult Function(ListenUser value) listenUser,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(LogoutRequestedEvent value)? logoutRequestedEvent,
-    TResult? Function(UserChanged value)? userChanged,
+    TResult? Function(ListenUser value)? listenUser,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(LogoutRequestedEvent value)? logoutRequestedEvent,
-    TResult Function(UserChanged value)? userChanged,
+    TResult Function(ListenUser value)? listenUser,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -112,7 +112,7 @@ class _$LogoutRequestedEvent implements LogoutRequestedEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() logoutRequestedEvent,
-    required TResult Function(Option<User> user) userChanged,
+    required TResult Function() listenUser,
   }) {
     return logoutRequestedEvent();
   }
@@ -121,7 +121,7 @@ class _$LogoutRequestedEvent implements LogoutRequestedEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? logoutRequestedEvent,
-    TResult? Function(Option<User> user)? userChanged,
+    TResult? Function()? listenUser,
   }) {
     return logoutRequestedEvent?.call();
   }
@@ -130,7 +130,7 @@ class _$LogoutRequestedEvent implements LogoutRequestedEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? logoutRequestedEvent,
-    TResult Function(Option<User> user)? userChanged,
+    TResult Function()? listenUser,
     required TResult orElse(),
   }) {
     if (logoutRequestedEvent != null) {
@@ -143,7 +143,7 @@ class _$LogoutRequestedEvent implements LogoutRequestedEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(LogoutRequestedEvent value) logoutRequestedEvent,
-    required TResult Function(UserChanged value) userChanged,
+    required TResult Function(ListenUser value) listenUser,
   }) {
     return logoutRequestedEvent(this);
   }
@@ -152,7 +152,7 @@ class _$LogoutRequestedEvent implements LogoutRequestedEvent {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(LogoutRequestedEvent value)? logoutRequestedEvent,
-    TResult? Function(UserChanged value)? userChanged,
+    TResult? Function(ListenUser value)? listenUser,
   }) {
     return logoutRequestedEvent?.call(this);
   }
@@ -161,7 +161,7 @@ class _$LogoutRequestedEvent implements LogoutRequestedEvent {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(LogoutRequestedEvent value)? logoutRequestedEvent,
-    TResult Function(UserChanged value)? userChanged,
+    TResult Function(ListenUser value)? listenUser,
     required TResult orElse(),
   }) {
     if (logoutRequestedEvent != null) {
@@ -176,93 +176,67 @@ abstract class LogoutRequestedEvent implements AuthEvent {
 }
 
 /// @nodoc
-abstract class _$$UserChangedCopyWith<$Res> {
-  factory _$$UserChangedCopyWith(
-          _$UserChanged value, $Res Function(_$UserChanged) then) =
-      __$$UserChangedCopyWithImpl<$Res>;
-  @useResult
-  $Res call({Option<User> user});
+abstract class _$$ListenUserCopyWith<$Res> {
+  factory _$$ListenUserCopyWith(
+          _$ListenUser value, $Res Function(_$ListenUser) then) =
+      __$$ListenUserCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$UserChangedCopyWithImpl<$Res>
-    extends _$AuthEventCopyWithImpl<$Res, _$UserChanged>
-    implements _$$UserChangedCopyWith<$Res> {
-  __$$UserChangedCopyWithImpl(
-      _$UserChanged _value, $Res Function(_$UserChanged) _then)
+class __$$ListenUserCopyWithImpl<$Res>
+    extends _$AuthEventCopyWithImpl<$Res, _$ListenUser>
+    implements _$$ListenUserCopyWith<$Res> {
+  __$$ListenUserCopyWithImpl(
+      _$ListenUser _value, $Res Function(_$ListenUser) _then)
       : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? user = null,
-  }) {
-    return _then(_$UserChanged(
-      null == user
-          ? _value.user
-          : user // ignore: cast_nullable_to_non_nullable
-              as Option<User>,
-    ));
-  }
 }
 
 /// @nodoc
 
-class _$UserChanged implements UserChanged {
-  const _$UserChanged(this.user);
-
-  @override
-  final Option<User> user;
+class _$ListenUser implements ListenUser {
+  const _$ListenUser();
 
   @override
   String toString() {
-    return 'AuthEvent.userChanged(user: $user)';
+    return 'AuthEvent.listenUser()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$UserChanged &&
-            (identical(other.user, user) || other.user == user));
+        (other.runtimeType == runtimeType && other is _$ListenUser);
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, user);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$UserChangedCopyWith<_$UserChanged> get copyWith =>
-      __$$UserChangedCopyWithImpl<_$UserChanged>(this, _$identity);
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() logoutRequestedEvent,
-    required TResult Function(Option<User> user) userChanged,
+    required TResult Function() listenUser,
   }) {
-    return userChanged(user);
+    return listenUser();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? logoutRequestedEvent,
-    TResult? Function(Option<User> user)? userChanged,
+    TResult? Function()? listenUser,
   }) {
-    return userChanged?.call(user);
+    return listenUser?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? logoutRequestedEvent,
-    TResult Function(Option<User> user)? userChanged,
+    TResult Function()? listenUser,
     required TResult orElse(),
   }) {
-    if (userChanged != null) {
-      return userChanged(user);
+    if (listenUser != null) {
+      return listenUser();
     }
     return orElse();
   }
@@ -271,41 +245,36 @@ class _$UserChanged implements UserChanged {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(LogoutRequestedEvent value) logoutRequestedEvent,
-    required TResult Function(UserChanged value) userChanged,
+    required TResult Function(ListenUser value) listenUser,
   }) {
-    return userChanged(this);
+    return listenUser(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(LogoutRequestedEvent value)? logoutRequestedEvent,
-    TResult? Function(UserChanged value)? userChanged,
+    TResult? Function(ListenUser value)? listenUser,
   }) {
-    return userChanged?.call(this);
+    return listenUser?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(LogoutRequestedEvent value)? logoutRequestedEvent,
-    TResult Function(UserChanged value)? userChanged,
+    TResult Function(ListenUser value)? listenUser,
     required TResult orElse(),
   }) {
-    if (userChanged != null) {
-      return userChanged(this);
+    if (listenUser != null) {
+      return listenUser(this);
     }
     return orElse();
   }
 }
 
-abstract class UserChanged implements AuthEvent {
-  const factory UserChanged(final Option<User> user) = _$UserChanged;
-
-  Option<User> get user;
-  @JsonKey(ignore: true)
-  _$$UserChangedCopyWith<_$UserChanged> get copyWith =>
-      throw _privateConstructorUsedError;
+abstract class ListenUser implements AuthEvent {
+  const factory ListenUser() = _$ListenUser;
 }
 
 /// @nodoc

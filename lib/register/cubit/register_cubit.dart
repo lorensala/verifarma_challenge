@@ -4,13 +4,13 @@ import 'package:formz/formz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:validators/validators.dart';
 
-part 'login_cubit.freezed.dart';
-part 'login_state.dart';
+part 'register_cubit.freezed.dart';
+part 'register_state.dart';
 
-class LoginCubit extends Cubit<LoginState> {
-  LoginCubit({required AuthenticationRepository authenticationRepository})
-      : _repository = authenticationRepository,
-        super(const LoginState());
+class RegisterCubit extends Cubit<RegisterState> {
+  RegisterCubit({required AuthenticationRepository repository})
+      : _repository = repository,
+        super(const RegisterState());
   final AuthenticationRepository _repository;
 
   void emailChanged(String value) {
@@ -39,11 +39,11 @@ class LoginCubit extends Cubit<LoginState> {
     );
   }
 
-  Future<void> logInWithEmailAndPassword() async {
-    if (state.email.value.isEmpty || state.password.value.isEmpty) return;
+  Future<void> registerWithEmailAndPassword() async {
+    if (state.isNotValid) return;
     emit(state.copyWith(status: FormzSubmissionStatus.inProgress));
 
-    final possibleFailure = await _repository.loginWithEmailAndPassword(
+    final possibleFailure = await _repository.registerWithEmailAndPassword(
       email: state.email.value,
       password: state.password.value,
     );
@@ -55,9 +55,7 @@ class LoginCubit extends Cubit<LoginState> {
           failure: failure,
         ),
       ),
-      (_) => emit(
-        state.copyWith(status: FormzSubmissionStatus.success),
-      ),
+      (_) => emit(state.copyWith(status: FormzSubmissionStatus.success)),
     );
   }
 }

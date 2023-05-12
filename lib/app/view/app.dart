@@ -30,6 +30,7 @@ class App extends StatelessWidget {
 
           return MaterialApp(
             theme: isDark ? AppTheme.darkTheme : AppTheme.lightTheme,
+            debugShowCheckedModeBanner: false,
             localizationsDelegates: AppLocalizations.localizationsDelegates,
             supportedLocales: AppLocalizations.supportedLocales,
             home: user.when(

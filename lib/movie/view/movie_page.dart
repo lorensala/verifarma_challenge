@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
+import 'package:movie_app/auth/auth.dart';
 import 'package:movie_app/l10n/l10n.dart';
+import 'package:movie_app/login/login.dart';
 import 'package:movie_app/movie/bloc/bloc.dart';
 import 'package:movie_app/movie/widgets/movie_body.dart';
 import 'package:movie_app/theme/widgets/theme_toggle.dart';
@@ -29,6 +31,7 @@ class MoviePage extends StatelessWidget {
           title: Text(context.l10n.counterAppBarTitle),
           actions: const [
             ThemeToggle(),
+            SignOutButton(),
           ],
         ),
         body: const MovieView(),
@@ -46,6 +49,16 @@ class MovieView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MovieBody();
+    return BlocListener<AuthBloc, AuthState>(
+      listener: (context, state) {
+        state.whenOrNull(
+          unauthenticated: () => Navigator.of(context).pushAndRemoveUntil<void>(
+            LoginPage.route(),
+            (route) => false,
+          ),
+        );
+      },
+      child: const MovieBody(),
+    );
   }
 }

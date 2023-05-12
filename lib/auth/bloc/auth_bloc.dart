@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:authentication/authentication.dart';
 import 'package:bloc/bloc.dart';
-import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'auth_bloc.freezed.dart';
@@ -16,34 +15,30 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
           authenticationRepository.user
               .fold(AuthState.unauthenticated, AuthState.authenticated),
         ) {
-    on<UserChanged>(_onUserChanged);
-
     on<LogoutRequestedEvent>(_onLogoutRequested);
+    on<ListenUser>(_onListenUser);
 
-    // _userAuthSubscription = _repository.userAuthStateChanged.listen((user) {
-    //   add(UserChanged(user));
-    // });
+    add(const ListenUser());
   }
   final AuthenticationRepository _repository;
-  late final StreamSubscription<Option<User>> _userAuthSubscription;
-  late final StreamSubscription<Option<User>> _userChangesSubscription;
 
-  void _onUserChanged(UserChanged event, Emitter<AuthState> emit) =>
-      event.user.fold(
-        () => emit(const AuthState.unauthenticated()),
-        (user) => emit(AuthState.authenticated(user)),
-      );
+  Future<void> _onListenUser(ListenUser event, Emitter<AuthState> emit) async {
+    await emit.forEach(
+      _repository.userStream,
+      onData: (user) {
+        if (user == null) {
+          return const AuthState.unauthenticated();
+        } else {
+          return AuthState.authenticated(user);
+        }
+      },
+      onError: (error, _) => const AuthState.unauthenticated(),
+    );
+  }
 
   Future<void> _onLogoutRequested(
     LogoutRequestedEvent event,
     Emitter<AuthState> emit,
   ) async =>
       unawaited(_repository.logout());
-
-  @override
-  Future<void> close() {
-    _userAuthSubscription.cancel();
-    _userChangesSubscription.cancel();
-    return super.close();
-  }
 }

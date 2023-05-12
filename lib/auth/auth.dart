@@ -1,3 +1,2 @@
-export 'package:flutter_bloc/flutter_bloc.dart';
-
-export 'auth_bloc.dart';
+export 'bloc/bloc.dart';
+export 'widgets/widgets.dart';

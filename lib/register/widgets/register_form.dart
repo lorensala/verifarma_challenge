@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:formz/formz.dart';
 import 'package:movie_app/core/core.dart';
-import 'package:movie_app/login/login.dart';
 import 'package:movie_app/movie/movie.dart';
+import 'package:movie_app/register/cubit/register_cubit.dart';
 
-class LoginForm extends StatelessWidget {
-  const LoginForm({super.key});
+class RegisterForm extends StatelessWidget {
+  const RegisterForm({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,28 +16,8 @@ class LoginForm extends StatelessWidget {
         SizedBox(height: Sizes.medium),
         _PasswordInput(),
         SizedBox(height: Sizes.large),
-        _ForgotPassword(),
-        SizedBox(height: Sizes.large),
-        _LoginButton(),
+        _RegisterButton(),
       ],
-    );
-  }
-}
-
-class _ForgotPassword extends StatelessWidget {
-  const _ForgotPassword();
-
-  @override
-  Widget build(BuildContext context) {
-    return Align(
-      alignment: Alignment.centerRight,
-      child: GestureDetector(
-        onTap: () {},
-        child: Text(
-          'Forgot password?',
-          style: Theme.of(context).textTheme.bodyMedium,
-        ),
-      ),
     );
   }
 }
@@ -47,17 +27,27 @@ class _PasswordInput extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<LoginCubit, LoginState>(
+    final cubit = context.read<RegisterCubit>();
+    return BlocBuilder<RegisterCubit, RegisterState>(
       builder: (context, state) {
-        final cubit = context.read<LoginCubit>();
-        final showError = state.status.isFailure;
+        final showError = !state.password.isPure &&
+            state.password.value.isNotEmpty &&
+            state.password.isNotValid;
 
         return TextField(
           onChanged: cubit.passwordChanged,
           textInputAction: TextInputAction.done,
           decoration: InputDecoration(
             hintText: 'Password',
-            errorText: showError ? 'Invalid password' : null,
+            errorMaxLines: 2,
+            errorText: showError
+                ? state.password.error!.when(
+                    invalid: () =>
+                        'Password must contain at least 8 characters and include at least one number',
+                    empty: () => 'Password is empty',
+                    tooShort: () => 'Password too short',
+                  )
+                : null,
             suffixIconConstraints: const BoxConstraints(
               maxHeight: Sizes.large,
               maxWidth: Sizes.large + Sizes.small,
@@ -90,11 +80,13 @@ class _EmailInput extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final cubit = context.read<LoginCubit>();
+    final cubit = context.read<RegisterCubit>();
 
-    return BlocBuilder<LoginCubit, LoginState>(
+    return BlocBuilder<RegisterCubit, RegisterState>(
       builder: (context, state) {
-        final showError = state.status.isFailure;
+        final showError = !state.email.isPure &&
+            state.email.value.isNotEmpty &&
+            state.email.isNotValid;
 
         return TextField(
           onChanged: cubit.emailChanged,
@@ -102,7 +94,12 @@ class _EmailInput extends StatelessWidget {
           textInputAction: TextInputAction.next,
           decoration: InputDecoration(
             hintText: 'Email',
-            errorText: showError ? 'Invalid email' : null,
+            errorText: showError
+                ? state.email.error!.when(
+                    invalid: () => 'Invalid email',
+                    empty: () => 'Email is empty',
+                  )
+                : null,
           ),
         );
       },
@@ -110,12 +107,12 @@ class _EmailInput extends StatelessWidget {
   }
 }
 
-class _LoginButton extends StatelessWidget {
-  const _LoginButton();
+class _RegisterButton extends StatelessWidget {
+  const _RegisterButton();
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<LoginCubit, LoginState>(
+    return BlocConsumer<RegisterCubit, RegisterState>(
       listenWhen: (previous, current) => previous.status != current.status,
       listener: (context, state) {
         if (state.status.isSuccess) {
@@ -132,12 +129,12 @@ class _LoginButton extends StatelessWidget {
         }
       },
       builder: (context, state) {
-        final cubit = context.read<LoginCubit>();
-        final isValid = !state.status.isInProgress;
+        final cubit = context.read<RegisterCubit>();
+        final isValid = state.isValid && !state.status.isInProgress;
 
         return ElevatedButton(
-          onPressed: isValid ? cubit.logInWithEmailAndPassword : null,
-          child: const Text('Login'),
+          onPressed: isValid ? cubit.registerWithEmailAndPassword : null,
+          child: const Text('Register'),
         );
       },
     );
