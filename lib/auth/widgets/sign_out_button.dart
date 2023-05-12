@@ -18,8 +18,8 @@ class SignOutButton extends StatelessWidget {
             .add(const AuthEvent.logoutRequestedEvent()),
         child: SvgPicture.asset(
           Vectors.exit,
-          height: Sizes.large,
-          width: Sizes.large,
+          height: 19,
+          width: 19,
           semanticsLabel: 'logout',
           colorFilter: ColorFilter.mode(
             context.colorScheme.primary,
