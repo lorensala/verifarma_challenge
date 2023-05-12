@@ -20,6 +20,7 @@ class SignOutButton extends StatelessWidget {
           Vectors.exit,
           height: Sizes.large,
           width: Sizes.large,
+          semanticsLabel: 'logout',
           colorFilter: ColorFilter.mode(
             context.colorScheme.primary,
             BlendMode.srcIn,

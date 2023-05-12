@@ -24,11 +24,16 @@ class MovieDetailItem extends StatelessWidget {
         children: [
           Text(
             title,
+            semanticsLabel: title,
             style: context.textTheme.titleSmall!.copyWith(
               color: context.colorScheme.onBackground.withOpacity(0.7),
             ),
           ),
-          Text(content, style: context.textTheme.bodyLarge),
+          Text(
+            content,
+            semanticsLabel: content,
+            style: context.textTheme.bodyLarge,
+          ),
         ],
       ),
     );

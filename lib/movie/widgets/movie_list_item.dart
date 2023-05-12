@@ -32,6 +32,7 @@ class MovieListItem extends StatelessWidget {
       ),
       trailing: SvgPicture.asset(
         Vectors.chevronRight,
+        semanticsLabel: 'arrow right',
         colorFilter: ColorFilter.mode(
           context.colorScheme.onBackground.withOpacity(0.5),
           BlendMode.srcIn,
@@ -43,6 +44,7 @@ class MovieListItem extends StatelessWidget {
           children: [
             TextSpan(
               text: movie.type.capizalize,
+              semanticsLabel: movie.type.capizalize,
               style: TextStyle(
                 color: context.colorScheme.onBackground.withOpacity(0.5),
               ),
@@ -50,6 +52,7 @@ class MovieListItem extends StatelessWidget {
             const TextSpan(text: ' • '),
             TextSpan(
               text: movie.year,
+              semanticsLabel: movie.year,
               style: TextStyle(
                 color: context.colorScheme.onBackground.withOpacity(0.5),
               ),
