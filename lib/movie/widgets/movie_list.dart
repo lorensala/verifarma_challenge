@@ -64,7 +64,7 @@ class _MovieListState extends State<MovieList> {
               },
             );
           },
-          error: (err) => Text('$err'),
+          error: (err) => Center(child: Text('Ocurrió un error: $err')),
         );
       },
     );

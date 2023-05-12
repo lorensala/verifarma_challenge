@@ -26,23 +26,7 @@ class MovieDetailBody extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Center(
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(Sizes.small),
-                      child: SizedBox(
-                        width: context.width * 0.5,
-                        child: Image.network(
-                          movie.poster,
-                          fit: BoxFit.fitWidth,
-                          errorBuilder: (context, _, __) {
-                            return const Center(
-                              child: Icon(Icons.image),
-                            );
-                          },
-                        ),
-                      ),
-                    ),
-                  ),
+                  MoviePoster(movie: movie),
                   const SizedBox(height: Sizes.medium),
                   MovieDetailItem(title: 'Title', content: movie.title),
                   MovieDetailItem(
@@ -87,7 +71,7 @@ class MovieDetailBody extends StatelessWidget {
               ),
             ),
           ),
-          error: (err) => Center(child: Text('$err')),
+          error: (err) => Center(child: Text('Ocurrío un error: $err')),
         );
       },
     );

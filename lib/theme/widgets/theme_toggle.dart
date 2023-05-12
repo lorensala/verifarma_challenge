@@ -18,6 +18,7 @@ class ThemeToggle extends StatelessWidget {
         onTap: () => context.read<ThemeCubit>().toggleTheme(),
         child: SvgPicture.asset(
           isDark ? Vectors.moon : Vectors.sun,
+          semanticsLabel: isDark ? 'moon' : 'sun',
           colorFilter: ColorFilter.mode(
             context.colorScheme.primary,
             BlendMode.srcIn,

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:formz/formz.dart';
+import 'package:movie_app/auth/auth.dart';
 import 'package:movie_app/core/core.dart';
 import 'package:movie_app/login/login.dart';
 import 'package:movie_app/movie/movie.dart';
@@ -126,7 +127,7 @@ class _LoginButton extends StatelessWidget {
             ..hideCurrentSnackBar()
             ..showSnackBar(
               SnackBar(
-                content: Text(state.failure.toString()),
+                content: Text(state.failure!.message),
               ),
             );
         }
